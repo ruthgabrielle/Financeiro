@@ -1,19 +1,27 @@
 package com.financeiro.model;
 
 import java.io.Serializable;
-import java.util.Objects;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "pessoa")
 public class Pessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private Long id;
     private String nome;
+
+    @Id
+    @GeneratedValue
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
+
+    @Column(length = 60, nullable = false)
     public String getNome() {
         return nome;
     }
